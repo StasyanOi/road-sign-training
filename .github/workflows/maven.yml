@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: set DISPLAY
-      run: export DISPLAY=:0
+      run: export DISPLAY=:0.0
     - name: test DISPLAY
       run: echo $DISPLAY
     - uses: actions/checkout@v3
