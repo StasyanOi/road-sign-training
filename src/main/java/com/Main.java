@@ -40,8 +40,9 @@ public class Main {
                         imageShower.closeFrame(jFrame);
                         break;
                     }
-                    System.out.println(comparator.compare(imagePath.getFileName().toString().replace(".png", ""),
-                            inputLine) ? "Correct" : "Incorrect");
+                    String correctMeaning = imagePath.getFileName().toString().replace(".png", "");
+                    System.out.println(comparator.compare(correctMeaning,
+                            inputLine) ? "Correct" : "Incorrect (" + correctMeaning + ")");
                     imageShower.closeFrame(jFrame);
                 }
             }
