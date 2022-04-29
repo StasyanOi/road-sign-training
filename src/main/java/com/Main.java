@@ -22,7 +22,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         log.info("Started application");
         try (var applicationContext = new AnnotationConfigApplicationContext(Main.class)) {
-            Properties properties = new Properties();
+            var properties = new Properties();
             properties.load(ClassLoader.getSystemResourceAsStream("application.properties"));
             try (var signImagePaths = Files.list(Path.of(properties.getProperty("cyprus.signs")))) {
                 var signImagePathsList = signImagePaths.toList();
@@ -40,7 +40,7 @@ public class Main {
                         imageShower.closeFrame(jFrame);
                         break;
                     }
-                    String correctMeaning = imagePath.getFileName().toString().replace(".png", "");
+                    var correctMeaning = imagePath.getFileName().toString().replace(".png", "");
                     System.out.println(comparator.compare(correctMeaning,
                             inputLine) ? "Correct" : "Incorrect (" + correctMeaning + ")");
                     imageShower.closeFrame(jFrame);
