@@ -22,9 +22,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
         log.info("Started application");
         try (var applicationContext = new AnnotationConfigApplicationContext(Main.class)) {
-            Properties properties = new Properties();
+            var properties = new Properties();
             properties.load(ClassLoader.getSystemResourceAsStream("application.properties"));
-            try (var signImagePaths = Files.list(Path.of(properties.getProperty("cyprus.signs")))) {
+            try (var signImagePaths = Files.list(Path.of(properties.getProperty("cyprus.signs.imageDirectory")))) {
                 var signImagePathsList = signImagePaths.toList();
                 log.info("Read image files");
 
@@ -40,8 +40,9 @@ public class Main {
                         imageShower.closeFrame(jFrame);
                         break;
                     }
-                    System.out.println(comparator.compare(imagePath.getFileName().toString().replace(".png", ""),
-                            inputLine) ? "Correct" : "Incorrect");
+                    var correctMeaning = imagePath.getFileName().toString().replace(".png", "");
+                    System.out.println(comparator.compare(correctMeaning,
+                            inputLine) ? "Correct" : "Incorrect (" + correctMeaning + ")");
                     imageShower.closeFrame(jFrame);
                 }
             }
