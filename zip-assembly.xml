@@ -12,8 +12,7 @@
             <outputDirectory>./</outputDirectory>
             <includes>
                 <include>cyprus-road-signs-1.0-SNAPSHOT-jar-with-dependencies.jar</include>
-                <include>cyprus_road_signs/*</include>
-                <include>PN_EN_traffic_code_simata.pdf</include>
+                <include>files/**</include>
             </includes>
         </fileSet>
     </fileSets>

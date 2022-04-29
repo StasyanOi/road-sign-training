@@ -134,10 +134,10 @@
                         </goals>
                         <phase>process-resources</phase>
                         <configuration>
-                            <outputDirectory>${basedir}/target/cyprus_road_signs</outputDirectory>
+                            <outputDirectory>${basedir}/target/files</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>cyprus_road_signs</directory>
+                                    <directory>files</directory>
                                 </resource>
                             </resources>
                         </configuration>
