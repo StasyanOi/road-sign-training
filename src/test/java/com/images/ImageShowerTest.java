@@ -11,7 +11,6 @@ import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@EnabledIfEnvironmentVariable(named = "DISPLAY", matches = ":0")
 class ImageShowerTest {
 
     ImageShower imageShower = new ImageShower();
