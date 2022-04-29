@@ -1,12 +1,20 @@
 package com.trigram;
 
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Setter
 @Component
+@PropertySource("classpath:application.properties")
 public class TrigramMatcher {
+
+    @Value("${cyprus.signs.matchingThreshold:0.5}")
+    private double matchingThreshold;
 
     public boolean matchTrigrams(List<String> trigrams1, List<String> trigrams2) {
         int firstListSize = trigrams1.size();
@@ -24,6 +32,6 @@ public class TrigramMatcher {
 
         compareResult = compareResult / firstListSize;
 
-        return compareResult > 0.5;
+        return compareResult > matchingThreshold;
     }
 }

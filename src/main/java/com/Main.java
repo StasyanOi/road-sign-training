@@ -24,7 +24,7 @@ public class Main {
         try (var applicationContext = new AnnotationConfigApplicationContext(Main.class)) {
             var properties = new Properties();
             properties.load(ClassLoader.getSystemResourceAsStream("application.properties"));
-            try (var signImagePaths = Files.list(Path.of(properties.getProperty("cyprus.signs")))) {
+            try (var signImagePaths = Files.list(Path.of(properties.getProperty("cyprus.signs.imageDirectory")))) {
                 var signImagePathsList = signImagePaths.toList();
                 log.info("Read image files");
 

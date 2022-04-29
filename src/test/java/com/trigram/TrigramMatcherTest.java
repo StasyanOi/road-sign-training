@@ -1,5 +1,6 @@
 package com.trigram;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -8,7 +9,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TrigramMatcherTest {
 
-    TrigramMatcher trigramMatcher = new TrigramMatcher();
+    TrigramMatcher trigramMatcher;
+
+    @BeforeEach
+    void init() {
+        trigramMatcher = new TrigramMatcher();
+        trigramMatcher.setMatchingThreshold(0.5);
+    }
 
     @Test
     void matchTrigramsTrueTest() {
