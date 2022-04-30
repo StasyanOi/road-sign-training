@@ -12,7 +12,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Properties;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Configuration
@@ -25,14 +27,18 @@ public class Main {
             var properties = new Properties();
             properties.load(ClassLoader.getSystemResourceAsStream("application.properties"));
             try (var signImagePaths = Files.list(Path.of(properties.getProperty("cyprus.signs.imageDirectory")))) {
-                var signImagePathsList = signImagePaths.toList();
+                var signImagePathsList = signImagePaths.collect(Collectors.toList());
                 log.info("Read image files");
 
                 var imageShower = applicationContext.getBean(ImageShower.class);
                 var scanner = applicationContext.getBean(Scanner.class);
                 var comparator = applicationContext.getBean(FuzzyComparator.class);
 
-                for (Path imagePath : signImagePathsList) {
+                var randomGenerator = new Random();
+                while (signImagePathsList.size() > 0) {
+                    int randomIndex = randomGenerator.nextInt(0, signImagePathsList.size());
+                    var imagePath = signImagePathsList.get(randomIndex);
+                    signImagePathsList.remove(randomIndex);
                     JFrame jFrame = imageShower.showFrame(imagePath);
                     System.out.print("What sign is this: ");
                     var inputLine = scanner.nextLine();
