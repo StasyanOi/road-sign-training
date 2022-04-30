@@ -23,34 +23,63 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         log.info("Started application");
+
         try (var applicationContext = new AnnotationConfigApplicationContext(Main.class)) {
+
             var properties = new Properties();
             properties.load(ClassLoader.getSystemResourceAsStream("application.properties"));
+
             try (var signImagePaths = Files.list(Path.of(properties.getProperty("cyprus.signs.imageDirectory")))) {
-                var signImagePathsList = signImagePaths.collect(Collectors.toList());
                 log.info("Read image files");
+
+                var signImagePathsList = signImagePaths.collect(Collectors.toList());
+                log.debug("Total images amount: {}", signImagePathsList.size());
 
                 var imageShower = applicationContext.getBean(ImageShower.class);
                 var scanner = applicationContext.getBean(Scanner.class);
                 var comparator = applicationContext.getBean(FuzzyComparator.class);
 
                 var randomGenerator = new Random();
+
+                int correctAnswers = 0;
+                int incorrectAnswers = 0;
+                int totalImagesAmount = signImagePathsList.size();
+
                 while (signImagePathsList.size() > 0) {
                     int randomIndex = randomGenerator.nextInt(0, signImagePathsList.size());
                     var imagePath = signImagePathsList.get(randomIndex);
                     signImagePathsList.remove(randomIndex);
+                    log.debug("Reading image with path: {}", imagePath);
+
                     JFrame jFrame = imageShower.showFrame(imagePath);
+
                     System.out.print("What sign is this: ");
                     var inputLine = scanner.nextLine();
                     if (inputLine.equals("exit")) {
                         imageShower.closeFrame(jFrame);
                         break;
                     }
+
                     var correctMeaning = imagePath.getFileName().toString().replace(".png", "");
-                    System.out.println(comparator.compare(correctMeaning,
-                            inputLine) ? "Correct" : "Incorrect (" + correctMeaning + ")");
+                    boolean linesAreEqual = comparator.compare(correctMeaning, inputLine);
+
+                    if (linesAreEqual) {
+                        System.out.println("Correct");
+                        correctAnswers++;
+                    } else {
+                        System.out.println("Incorrect (" + correctMeaning + ")");
+                        incorrectAnswers++;
+                    }
+
                     imageShower.closeFrame(jFrame);
                 }
+
+                System.out.println("Correct answers: " + correctAnswers);
+                System.out.println("Incorrect answers: " + incorrectAnswers);
+                System.out.println("Leftover images: " + (totalImagesAmount - correctAnswers - incorrectAnswers));
+                System.out.println("Total images: " + totalImagesAmount);
+
+                log.info("Exiting program");
             }
         }
     }
