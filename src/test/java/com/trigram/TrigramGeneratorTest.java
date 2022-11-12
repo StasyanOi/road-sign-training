@@ -1,5 +1,6 @@
 package com.trigram;
 
+import com.comparators.trigram.TrigramGenerator;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

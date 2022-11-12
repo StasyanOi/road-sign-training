@@ -1,4 +1,4 @@
-package com.trigram;
+package com.comparators.trigram;
 
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;

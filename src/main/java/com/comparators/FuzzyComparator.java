@@ -1,7 +1,7 @@
 package com.comparators;
 
-import com.trigram.TrigramGenerator;
-import com.trigram.TrigramMatcher;
+import com.comparators.trigram.TrigramGenerator;
+import com.comparators.trigram.TrigramMatcher;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
