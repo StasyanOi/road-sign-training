@@ -1,4 +1,4 @@
-package com.trigram;
+package com.comparators.trigram;
 
 import com.comparators.trigram.TrigramMatcher;
 import org.junit.jupiter.api.BeforeEach;

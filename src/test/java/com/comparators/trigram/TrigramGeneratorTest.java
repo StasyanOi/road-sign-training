@@ -1,4 +1,4 @@
-package com.trigram;
+package com.comparators.trigram;
 
 import com.comparators.trigram.TrigramGenerator;
 import org.junit.jupiter.api.Test;
