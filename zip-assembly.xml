@@ -11,7 +11,7 @@
             <directory>${project.build.directory}</directory>
             <outputDirectory>./</outputDirectory>
             <includes>
-                <include>cyprus-road-signs-1.0-SNAPSHOT-jar-with-dependencies.jar</include>
+                <include>road-signs-1.0-SNAPSHOT-jar-with-dependencies.jar</include>
                 <include>files/**</include>
             </includes>
         </fileSet>

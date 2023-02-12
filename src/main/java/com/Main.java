@@ -29,7 +29,7 @@ public class Main {
             var properties = new Properties();
             properties.load(ClassLoader.getSystemResourceAsStream("application.properties"));
 
-            try (var signImagePaths = Files.list(Path.of(properties.getProperty("cyprus.signs.imageDirectory")))) {
+            try (var signImagePaths = Files.list(Path.of(properties.getProperty("signs.imageDirectory")))) {
                 log.info("Read image files");
 
                 var signImagePathsList = signImagePaths.collect(Collectors.toList());

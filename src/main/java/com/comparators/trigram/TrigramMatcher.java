@@ -13,7 +13,7 @@ import java.util.List;
 @PropertySource("classpath:application.properties")
 public class TrigramMatcher {
 
-    @Value("${cyprus.signs.matchingThreshold:0.5}")
+    @Value("${signs.matchingThreshold:0.5}")
     private double matchingThreshold;
 
     public boolean matchTrigrams(List<String> trigrams1, List<String> trigrams2) {
