@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TrigramGeneratorTest {
 
-    TrigramGenerator trigramGenerator = new TrigramGenerator();
+    final TrigramGenerator trigramGenerator = new TrigramGenerator();
 
     @Test
     void generateTrigramsSmallStringTest() {

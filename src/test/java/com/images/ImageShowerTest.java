@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @EnabledIfEnvironmentVariable(named = "DISPLAY", matches = ":0")
 class ImageShowerTest {
 
-    ImageShower imageShower = new ImageShower();
+    final ImageShower imageShower = new ImageShower();
 
     @Test
     void showAndCloseImageSuccessTest() throws IOException, URISyntaxException {
