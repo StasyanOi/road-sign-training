@@ -1,6 +1,5 @@
 package com.trigram;
 
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
@@ -8,7 +7,6 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-@Setter
 @Component
 @PropertySource("classpath:application.properties")
 public class TrigramMatcher {
@@ -33,5 +31,9 @@ public class TrigramMatcher {
         compareResult = compareResult / firstListSize;
 
         return compareResult > matchingThreshold;
+    }
+
+    public void setMatchingThreshold(double matchingThreshold) {
+        this.matchingThreshold = matchingThreshold;
     }
 }

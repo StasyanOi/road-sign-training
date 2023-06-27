@@ -2,15 +2,18 @@ package com.comparators;
 
 import com.trigram.TrigramGenerator;
 import com.trigram.TrigramMatcher;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
 public class FuzzyComparator {
 
     private final TrigramGenerator trigramGenerator;
     private final TrigramMatcher trigramMatcher;
+
+    public FuzzyComparator(TrigramGenerator trigramGenerator, TrigramMatcher trigramMatcher) {
+        this.trigramGenerator = trigramGenerator;
+        this.trigramMatcher = trigramMatcher;
+    }
 
     public boolean compare(String string1, String string2) {
 
