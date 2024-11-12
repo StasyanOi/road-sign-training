@@ -1,7 +1,7 @@
-package com.comparators;
+package io.comparators;
 
-import com.trigram.TrigramGenerator;
-import com.trigram.TrigramMatcher;
+import io.trigram.TrigramGenerator;
+import io.trigram.TrigramMatcher;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

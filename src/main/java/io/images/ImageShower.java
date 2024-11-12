@@ -1,4 +1,4 @@
-package com.images;
+package io.images;
 
 import org.springframework.stereotype.Component;
 

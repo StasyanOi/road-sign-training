@@ -1,4 +1,4 @@
-package com.trigram;
+package io.trigram;
 
 import org.springframework.stereotype.Component;
 

@@ -3,4 +3,5 @@ open module com {
     requires java.desktop;
     requires spring.beans;
     requires org.slf4j;
+    requires spring.core;
 }

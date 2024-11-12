@@ -1,7 +1,7 @@
-package com;
+package io;
 
-import com.comparators.FuzzyComparator;
-import com.images.ImageShower;
+import io.comparators.FuzzyComparator;
+import io.images.ImageShower;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

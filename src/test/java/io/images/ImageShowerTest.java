@@ -1,4 +1,4 @@
-package com.images;
+package io.images;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
