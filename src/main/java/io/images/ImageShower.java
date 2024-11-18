@@ -22,7 +22,7 @@ public class ImageShower {
         JFrame frame = new JFrame();
         frame.add(jLabel);
         frame.setLayout(new FlowLayout());
-        frame.setSize(200, 200);
+        frame.setSize(500, 500);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         return frame;
