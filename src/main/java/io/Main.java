@@ -66,7 +66,7 @@ public class Main {
                     boolean linesAreEqual = comparator.compare(correctMeaning, inputLine);
 
                     if (linesAreEqual) {
-                        System.out.println("Correct");
+                        System.out.println("Correct (" + correctMeaning + ")");
                         correctAnswers++;
                     } else {
                         System.out.println("Incorrect (" + correctMeaning + ")");
